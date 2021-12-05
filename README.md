@@ -1,9 +1,9 @@
 # AVR Template Project
 ###### tags: `AVR`
-使用stm32f303ze完成的專案，並實作printf及scanf功能
+使用Arduino UNO R3完成的專案，並實作printf及scanf功能
 
 ## 檔案編排
-> ARM-Template-Project
+> AVR-Template-Project
 >> Inc
 >>> myusart.h
 
