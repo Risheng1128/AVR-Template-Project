@@ -1,18 +1,20 @@
 # AVR Template Project
 ###### tags: `AVR`
-使用Arduino UNO R3完成的專案，並實作printf及scanf功能
+使用stm32f303ze完成的專案，並實作printf及scanf功能
 
 ## 檔案編排
-> AVR-Template-Project
->> Inc
->>> myusart.h
-
->> Src
->>> main.c 
->>> myusart.c
-
->> Makefile
->> README.md
+```
+ARM-Template-Project
+|    Makefile
+|    README.md
+|
+|────Inc
+|    |    myusart.h
+|
+|────Src
+|    |    main.c 
+|    |    myusart.c
+```
 
 ## 使用設備
 - Ardiono UNO R3
