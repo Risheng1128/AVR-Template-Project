@@ -6,16 +6,16 @@
 
 PORT = 3 # arduino uno
 TARGET = main
+SRC = $(wildcard ./Src/*.c)
+INC = -IInc
+SRCOBJ = $(patsubst %.c, %.o,$(SRC))
 DEVICE = atmega328p
 BAUD = 115200
 LINKER = -Wl,-u,vfprintf -Wl,--start-group -Wl,-lm -Wl,-lprintf_flt -Wl,-lscanf_flt -Wl,--end-group -Wl,--gc-sections -mrelax -Wl,-u,vfscanf
-CC = avr-gcc -Wall -Os -mmcu=$(DEVICE) $(LINKER)
+CC = avr-gcc $(INC) -Wall -Os -mmcu=$(DEVICE) $(LINKER)
 BUILD = Debug
 
-SRC = $(wildcard ./Src/*.c)
-SRCOBJ = $(patsubst %.c, %.o,$(SRC))
-
-all: $(BUILD) $(TARGET) upload clean terminal
+all: $(BUILD) $(TARGET)
 $(BUILD):
 	mkdir $@
 
@@ -24,7 +24,7 @@ $(TARGET): $(SRCOBJ)
 	avr-objcopy -j .text -j .data -O ihex $(BUILD)/$@.elf $(BUILD)/$@.hex
 	avr-size --format=avr --mcu=$(DEVICE) $(BUILD)/$@.elf
 
-%.o: %.c %.h
+%.o: %.c
 	$(CC) -c $< -o $@
 
 .PHONY: clean terminal upload

@@ -6,7 +6,7 @@
   ******************************************************************************
   */
 
-#include "../Inc/myusart.h"
+#include "myusart.h"
 
 static FILE STDIO_BUFFER = FDEV_SETUP_STREAM(stdio_putchar, stdio_getchar, _FDEV_SETUP_RW);
 /* From Atmega328 datasheet p.150, Sending Frames with 5 to 8 Data Bit */

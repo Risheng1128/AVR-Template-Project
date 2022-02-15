@@ -5,7 +5,7 @@
   * @brief   This file is a test of Atmega328p 
   ******************************************************************************
   */
-#include "../Inc/myusart.h"
+#include "myusart.h"
 
 int main (void){
     USART_Init();
